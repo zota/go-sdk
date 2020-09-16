@@ -14,7 +14,7 @@ import (
 
 const (
 	// VERSION string of SDK
-	VERSION string = "v1.0.16"
+	VERSION string = "v1.1.1"
 	// SANDBOX endpoint URL
 	SANDBOX string = "https://api.zotapay-sandbox.com"
 	// LIVE production endpoint URL

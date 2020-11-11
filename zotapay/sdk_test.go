@@ -37,9 +37,9 @@ func Test_Validate(t *testing.T) {
 				MerchantID:        "API_MERCHANT_ID",
 				MerchantSecretKey: "API_MERCHANT_SECRET_KEY",
 				EndpointID:        "503368",
-				ApiBaseURL:        "http://some.wrong",
+				ApiBaseURL:        "",
 			},
-			expectedError: fmt.Errorf("unexpected ApiBaseURL."),
+			expectedError: fmt.Errorf("ApiBaseURL is required."),
 		}, {
 			name: "Missing EndpointID",
 			mock: &SDK{

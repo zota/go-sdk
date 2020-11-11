@@ -14,7 +14,7 @@ import (
 
 const (
 	// VERSION string of SDK
-	VERSION string = "v1.1.1"
+	VERSION string = "v1.1.2"
 	// SANDBOX endpoint URL
 	SANDBOX string = "https://api.zotapay-sandbox.com"
 	// LIVE production endpoint URL
@@ -52,8 +52,8 @@ func (s *SDK) validate() error {
 	if s.ApiBaseURL == "" {
 		return fmt.Errorf("ApiBaseURL is required.")
 	}
-	if s.ApiBaseURL != SANDBOX && s.ApiBaseURL != LIVE {
-		return fmt.Errorf("unexpected ApiBaseURL.")
+	if s.ApiBaseURL == "" {
+		return fmt.Errorf("ApiBaseURL is required.")
 	}
 	return nil
 }

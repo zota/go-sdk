@@ -1,7 +1,7 @@
 [![codecov](https://codecov.io/gh/zotapay/go-sdk/branch/master/graph/badge.svg?token=WKOX8Lm3My)](https://codecov.io/gh/zotapay/go-sdk)
 [![action](https://github.com/zotapay/go-sdk/workflows/Go%20Matrix%20Test/badge.svg?branch=master)](https://github.com/zotapay/go-sdk/actions)
 [![action](https://github.com/zotapay/go-sdk/workflows/Golang%20Quality%20Pipeline/badge.svg?branch=master)](https://github.com/zotapay/go-sdk/actions)
-
+![golang-github](https://user-images.githubusercontent.com/174284/106497798-2cee0d00-64c7-11eb-9014-9e0d8c4231cf.jpg)
 
 # Official Zotapay Go SDK
 

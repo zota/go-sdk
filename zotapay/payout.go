@@ -9,28 +9,35 @@ import (
 
 // PayoutOrder represents payout order
 type PayoutOrder struct {
-	MerchantOrderID           string `json:"merchantOrderID"`
-	MerchantOrderDesc         string `json:"merchantOrderDesc"`
-	OrderAmount               string `json:"orderAmount"`
-	OrderCurrency             string `json:"orderCurrency"`
-	CustomerEmail             string `json:"customerEmail"`
-	CustomerFirstName         string `json:"customerFirstName"`
-	CustomerLastName          string `json:"customerLastName"`
-	CustomerPhone             string `json:"customerPhone"`
-	CustomerIP                string `json:"customerIP"`
-	CallbackURL               string `json:"callbackUrl"`
-	CustomerBankCode          string `json:"customerBankCode"`
-	CustomerBankAccountNumber string `json:"customerBankAccountNumber"`
-	CustomerBankAccountName   string `json:"customerBankAccountName"`
-	CustomerBankBranch        string `json:"customerBankBranch"`
-	CustomerBankAddress       string `json:"customerBankAddress"`
-	CustomerBankZipCode       string `json:"customerBankZipCode"`
-	CustomerBankProvince      string `json:"customerBankProvince"`
-	CustomerBankArea          string `json:"customerBankArea"`
-	CustomerBankRoutingNumber string `json:"customerBankRoutingNumber"`
-	CustomParam               string `json:"customParam"`
-	CheckoutURL               string `json:"checkoutUrl"`
-	Signature                 string `json:"signature"`
+	MerchantOrderID                string `json:"merchantOrderID"`
+	MerchantOrderDesc              string `json:"merchantOrderDesc"`
+	OrderAmount                    string `json:"orderAmount"`
+	OrderCurrency                  string `json:"orderCurrency"`
+	CustomerEmail                  string `json:"customerEmail"`
+	CustomerFirstName              string `json:"customerFirstName"`
+	CustomerLastName               string `json:"customerLastName"`
+	CustomerPhone                  string `json:"customerPhone"`
+	CustomerIP                     string `json:"customerIP"`
+	CallbackURL                    string `json:"callbackUrl"`
+	CustomerBankCode               string `json:"customerBankCode"`
+	CustomerBankAccountNumber      string `json:"customerBankAccountNumber"`
+	CustomerBankAccountName        string `json:"customerBankAccountName"`
+	CustomerBankBranch             string `json:"customerBankBranch"`
+	CustomerBankAddress            string `json:"customerBankAddress"`
+	CustomerBankZipCode            string `json:"customerBankZipCode"`
+	CustomerBankProvince           string `json:"customerBankProvince"`
+	CustomerBankArea               string `json:"customerBankArea"`
+	CustomerBankRoutingNumber      string `json:"customerBankRoutingNumber"`
+	CustomParam                    string `json:"customParam"`
+	CheckoutURL                    string `json:"checkoutUrl"`
+	RedirectUrl                    string `json:"redirectUrl"`
+	CustomerCountryCode            string `json:"customerCountryCode"`
+	CustomerPersonalID             string `json:"customerPersonalID"`
+	CustomerBankAccountNumberDigit string `json:"customerBankAccountNumberDigit"`
+	CustomerBankAccountType        string `json:"customerBankAccountType"`
+	CustomerBankSwiftCode          string `json:"customerBankSwiftCode"`
+	CustomerBankBranchDigit        string `json:"customerBankBranchDigit"`
+	Signature                      string `json:"signature"`
 }
 
 // PayoutResult represents the payout response from Zotapay API

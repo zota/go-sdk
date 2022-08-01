@@ -19,7 +19,7 @@ Go SDK provides all the necessary methods for integrating the Zotapay Merchant A
 ### Main configuration
 After all the files are loaded configuration is needed. This can be done initiation of `zotapay.SDK{}`. Configuration includes:
 - Credentials
-- Endpoint API url - test or production environment
+- Endpoint API url - test or production environment 
 
 ### API requests
 After everything is setup all requests to the API are made with the corresponding methods:

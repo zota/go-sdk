@@ -80,14 +80,14 @@ func (s *SDK) Deposit(d DepositOrder) (res DepositResult, err error) {
 		return
 	}
 
-	_, body, err := s.httpDo(http.MethodPost, fmt.Sprintf("%v/api/v1/deposit/request/%v/", s.ApiBaseURL, s.EndpointID), deposit)
+	code, body, err := s.httpDo(http.MethodPost, fmt.Sprintf("%v/api/v1/deposit/request/%v/", s.ApiBaseURL, s.EndpointID), deposit)
 	if err != nil {
 		return
 	}
 
 	err = json.Unmarshal(body, &res)
 	if err != nil {
-		err = fmt.Errorf("json Unmarshal err:%v", err)
+		err = fmt.Errorf("json Unmarshal err:%v, httpCode:%v", err, code)
 		return
 	}
 

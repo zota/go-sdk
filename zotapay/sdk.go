@@ -52,9 +52,10 @@ func (s *SDK) validate() error {
 	if s.ApiBaseURL == "" {
 		return fmt.Errorf("ApiBaseURL is required.")
 	}
-	if s.ApiBaseURL != SANDBOX && s.ApiBaseURL != LIVE {
-		return fmt.Errorf("unexpected ApiBaseURL.")
-	}
+	// We do not need that for the zotaloader
+	//if s.ApiBaseURL != SANDBOX && s.ApiBaseURL != LIVE {
+	//	return fmt.Errorf("unexpected ApiBaseURL.")
+	//}
 	return nil
 }
 

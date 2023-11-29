@@ -88,9 +88,9 @@ func (s *SDK) Payout(p PayoutOrder) (res PayoutResult, err error) {
 	}
 
 	url := fmt.Sprintf("%v/api/v1/payout/request/%v/", s.ApiBaseURL, s.EndpointID)
-	fmt.Printf("before payout req to:%v", url)
+	fmt.Printf("before payout req to:%v\n", url)
 	code, body, err := s.httpDo(http.MethodPost, fmt.Sprintf("%v/api/v1/payout/request/%v/", s.ApiBaseURL, s.EndpointID), payout)
-	fmt.Printf("after payout req to:%v, code:%v, body:%v, err:%v", url, code, body, err)
+	fmt.Printf("after payout req to:%v, code:%v, body:%v, err:%v\n", url, code, string(body), err)
 	if err != nil {
 		return
 	}

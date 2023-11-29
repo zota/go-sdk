@@ -80,8 +80,15 @@ func (s *SDK) Deposit(d DepositOrder) (res DepositResult, err error) {
 		return
 	}
 
-	code, body, err := s.httpDo(http.MethodPost, fmt.Sprintf("%v/api/v1/deposit/request/%v/", s.ApiBaseURL, s.EndpointID), deposit)
+	url := fmt.Sprintf("%v/api/v1/deposit/request/%v/", s.ApiBaseURL, s.EndpointID)
+	code, body, err := s.httpDo(http.MethodPost, url, deposit)
 	if err != nil {
+		return
+	}
+
+	if code != 200 && code != 201 {
+		fmt.Printf("deposit request: expected http code 200 or 201, received: httpCode:%v, url:%v \n", code, url)
+		err = fmt.Errorf("deposit request: payout request:expected http code 200 or 201, received: httpCode:%v", code)
 		return
 	}
 

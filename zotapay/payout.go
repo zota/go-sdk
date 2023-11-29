@@ -87,8 +87,15 @@ func (s *SDK) Payout(p PayoutOrder) (res PayoutResult, err error) {
 		return
 	}
 
-	_, body, err := s.httpDo(http.MethodPost, fmt.Sprintf("%v/api/v1/payout/request/%v/", s.ApiBaseURL, s.EndpointID), payout)
+	url := fmt.Sprintf("%v/api/v1/payout/request/%v/", s.ApiBaseURL, s.EndpointID)
+	code, body, err := s.httpDo(http.MethodPost, fmt.Sprintf("%v/api/v1/payout/request/%v/", s.ApiBaseURL, s.EndpointID), payout)
 	if err != nil {
+		return
+	}
+
+	if code != 200 && code != 201 {
+		fmt.Printf("payout request: expected http code 200 or 201, received: httpCode:%v, url:%v \n", code, url)
+		err = fmt.Errorf("payout request: expected http code 200 or 201, received: httpCode:%v", code)
 		return
 	}
 

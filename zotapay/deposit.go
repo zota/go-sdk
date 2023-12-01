@@ -81,9 +81,9 @@ func (s *SDK) Deposit(d DepositOrder) (res DepositResult, err error) {
 	}
 
 	url := fmt.Sprintf("%v/api/v1/deposit/request/%v/", s.ApiBaseURL, s.EndpointID)
-	fmt.Printf("before deposit req to:%v\n", url)
+	fmt.Printf("before deposit req to:%v, reqBody:%s\n", url, string(deposit))
 	code, body, err := s.httpDo(http.MethodPost, url, deposit)
-	fmt.Printf("after deposit req to:%v, code:%v, body:%s, err:%v\n", url, code, string(body), err)
+	fmt.Printf("after deposit req to:%v, code:%v, respBody:%s, err:%v\n", url, code, string(body), err)
 	if err != nil {
 		return
 	}

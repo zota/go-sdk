@@ -12,7 +12,7 @@ Go SDK provides all the necessary methods for integrating the Zotapay Merchant A
 
 ## Requirements
 - A functioning Zotapay Sandbox or Production account and related credentials (`MerchantID`, `MerchantSecretKey`, `EndpointID`)
-- Go 1.14 or greater
+- Go 1.21 or greater
 
 ## Usage
 

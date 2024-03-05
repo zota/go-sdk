@@ -9,27 +9,28 @@ import (
 
 // DepositOrder represents deposit order
 type DepositOrder struct {
-	MerchantOrderID     string `json:"merchantOrderID"`
-	MerchantOrderDesc   string `json:"merchantOrderDesc"`
-	OrderAmount         string `json:"orderAmount"`
-	OrderCurrency       string `json:"orderCurrency"`
-	CustomerEmail       string `json:"customerEmail"`
-	CustomerFirstName   string `json:"customerFirstName"`
-	CustomerLastName    string `json:"customerLastName"`
-	CustomerAddress     string `json:"customerAddress"`
-	CustomerCountryCode string `json:"customerCountryCode"`
-	CustomerCity        string `json:"customerCity"`
-	CustomerState       string `json:"customerState"`
-	CustomerZipCode     string `json:"customerZipCode"`
-	CustomerPhone       string `json:"customerPhone"`
-	CustomerIP          string `json:"customerIP"`
-	CustomerBankCode    string `json:"customerBankCode"`
-	RedirectURL         string `json:"redirectUrl"`
-	CallbackURL         string `json:"callbackUrl"`
-	CustomParam         string `json:"customParam"`
-	CheckoutURL         string `json:"checkoutUrl"`
-	Language            string `json:"language"`
-	Signature           string `json:"signature"`
+	MerchantOrderID           string `json:"merchantOrderID"`
+	MerchantOrderDesc         string `json:"merchantOrderDesc"`
+	OrderAmount               string `json:"orderAmount"`
+	OrderCurrency             string `json:"orderCurrency"`
+	CustomerEmail             string `json:"customerEmail"`
+	CustomerFirstName         string `json:"customerFirstName"`
+	CustomerLastName          string `json:"customerLastName"`
+	CustomerAddress           string `json:"customerAddress"`
+	CustomerCountryCode       string `json:"customerCountryCode"`
+	CustomerCity              string `json:"customerCity"`
+	CustomerState             string `json:"customerState"`
+	CustomerZipCode           string `json:"customerZipCode"`
+	CustomerPhone             string `json:"customerPhone"`
+	CustomerIP                string `json:"customerIP"`
+	CustomerBankCode          string `json:"customerBankCode"`
+	CustomerBankAccountNumber string `json:"customerBankAccountNumber"`
+	RedirectURL               string `json:"redirectUrl"`
+	CallbackURL               string `json:"callbackUrl"`
+	CustomParam               string `json:"customParam"`
+	CheckoutURL               string `json:"checkoutUrl"`
+	Language                  string `json:"language"`
+	Signature                 string `json:"signature"`
 }
 
 // DepositResult represents the response from Zotapay API

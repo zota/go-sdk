@@ -41,19 +41,19 @@ type httpClient interface {
 // and returns an error
 func (s *SDK) validate() error {
 	if s.MerchantID == "" {
-		return fmt.Errorf("MerchantID is required.\n")
+		return fmt.Errorf("MerchantID is required")
 	}
 	if s.MerchantSecretKey == "" {
-		return fmt.Errorf("MerchantSecretKey is required.\n")
+		return fmt.Errorf("MerchantSecretKey is required")
 	}
 	if s.EndpointID == "" {
-		return fmt.Errorf("EndpointID is required.\n")
+		return fmt.Errorf("EndpointID is required")
 	}
 	if s.ApiBaseURL == "" {
-		return fmt.Errorf("ApiBaseURL is required.\n")
+		return fmt.Errorf("ApiBaseURL is required")
 	}
 	if s.ApiBaseURL != SANDBOX && s.ApiBaseURL != LIVE {
-		return fmt.Errorf("unexpected ApiBaseURL.\b")
+		return fmt.Errorf("unexpected ApiBaseURL")
 	}
 	return nil
 }

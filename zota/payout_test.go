@@ -282,7 +282,7 @@ func Test_Payout(t *testing.T) {
 			// --------------------Test Validations----------------------
 			name:                 "Payout Request Validation Error",
 			expectedPayoutResult: PayoutResult{},
-			expectedError:        fmt.Errorf("MerchantID is required."),
+			expectedError:        fmt.Errorf("MerchantID is required"),
 			//empty struct will trigger validation
 			mockSDK:         SDK{},
 			mockPayoutOrder: PayoutOrder{},

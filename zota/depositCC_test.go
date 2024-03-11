@@ -3,10 +3,11 @@ package zota
 import (
 	"bytes"
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 // test base structure
@@ -282,7 +283,7 @@ func Test_DepositCC(t *testing.T) {
 			// --------------------Test Validations----------------------
 			name:                    "Deposit CC Request Validation Error",
 			expectedDepositCCResult: DepositCCResult{},
-			expectedError:           fmt.Errorf("MerchantID is required."),
+			expectedError:           fmt.Errorf("MerchantID is required"),
 			//empty struct will trigger validation
 			mockSDK:            SDK{},
 			mockDepositCCOrder: DepositCCOrder{},

@@ -3,10 +3,11 @@ package zota
 import (
 	"crypto/tls"
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"net/http"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
 // test base structure
@@ -39,7 +40,7 @@ func Test_Validate(t *testing.T) {
 				EndpointID:        "503368",
 				ApiBaseURL:        "http://some.wrong",
 			},
-			expectedError: fmt.Errorf("unexpected ApiBaseURL."),
+			expectedError: fmt.Errorf("unexpected ApiBaseURL"),
 		}, {
 			name: "Missing EndpointID",
 			mock: &SDK{
@@ -47,7 +48,7 @@ func Test_Validate(t *testing.T) {
 				MerchantSecretKey: "API_MERCHANT_SECRET_KEY",
 				ApiBaseURL:        SANDBOX,
 			},
-			expectedError: fmt.Errorf("EndpointID is required."),
+			expectedError: fmt.Errorf("EndpointID is required"),
 		}, {
 			name: "Missing EndpointID",
 			mock: &SDK{
@@ -55,7 +56,7 @@ func Test_Validate(t *testing.T) {
 				MerchantSecretKey: "API_MERCHANT_SECRET_KEY",
 				EndpointID:        "503368",
 			},
-			expectedError: fmt.Errorf("ApiBaseURL is required."),
+			expectedError: fmt.Errorf("ApiBaseURL is required"),
 		}, {
 			name: "Missing MerchantSecretKey",
 			mock: &SDK{
@@ -63,7 +64,7 @@ func Test_Validate(t *testing.T) {
 				EndpointID: "503368",
 				ApiBaseURL: SANDBOX,
 			},
-			expectedError: fmt.Errorf("MerchantSecretKey is required."),
+			expectedError: fmt.Errorf("MerchantSecretKey is required"),
 		}, {
 			name: "Missing MerchantID",
 			mock: &SDK{
@@ -71,7 +72,7 @@ func Test_Validate(t *testing.T) {
 				EndpointID:        "503368",
 				ApiBaseURL:        SANDBOX,
 			},
-			expectedError: fmt.Errorf("MerchantID is required."),
+			expectedError: fmt.Errorf("MerchantID is required"),
 		},
 	}
 
@@ -97,7 +98,7 @@ func Test_InitHttpClient(t *testing.T) {
 			expected: &http.Client{
 				Timeout: time.Second * 10,
 				Transport: &http.Transport{
-					TLSClientConfig: &tls.Config{PreferServerCipherSuites: true, MinVersion: tls.VersionTLS12},
+					TLSClientConfig: &tls.Config{MinVersion: tls.VersionTLS12},
 				},
 			},
 		}, {

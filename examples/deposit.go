@@ -2,19 +2,19 @@ package main
 
 import (
 	"fmt"
-	"github.com/zotapay/go-sdk/zotapay"
+	"github.com/zota/go-sdk/zota"
 )
 
 // deposit example init deposit function
 func deposit() {
-	var sdk = zotapay.SDK{
+	var sdk = zota.SDK{
 		MerchantID:        "API_MERCHANT_ID",
 		MerchantSecretKey: "API_MERCHANT_SECRET_KEY",
 		EndpointID:        "503368",
-		ApiBaseURL:        zotapay.SANDBOX,
+		ApiBaseURL:        zota.SANDBOX,
 	}
 
-	res, err := sdk.Deposit(zotapay.DepositOrder{
+	res, err := sdk.Deposit(zota.DepositOrder{
 		MerchantOrderID:     "134e4f44t65111",
 		MerchantOrderDesc:   "Test order description",
 		OrderAmount:         "500",
@@ -42,30 +42,30 @@ func deposit() {
 	}
 
 	if res.Code != "200" {
-		fmt.Printf("non-successful response from Zotapay server code:%v, error message:%v \n", res.Code, res.Message)
+		fmt.Printf("non-successful response from zota server code:%v, error message:%v \n", res.Code, res.Message)
 		return
 	}
 
-	fmt.Printf("successful response from Zotapay server code:%v, order ID:%v, merchant order ID:%v, deposit URL:%v \n",
+	fmt.Printf("successful response from zota server code:%v, order ID:%v, merchant order ID:%v, deposit URL:%v \n",
 		res.Code, res.Data.OrderID, res.Data.MerchantOrderID, res.Data.DepositURL)
 }
 
 // depositMocked example mocking deposit result
 // only for test purposes
 func depositMocked() {
-	var sdk = zotapay.SDK{
+	var sdk = zota.SDK{
 		MerchantID:        "API_MERCHANT_ID",
 		MerchantSecretKey: "API_MERCHANT_SECRET_KEY",
 		EndpointID:        "503368",
-		ApiBaseURL:        zotapay.SANDBOX,
+		ApiBaseURL:        zota.SANDBOX,
 	}
 
 	// ---------------only for test purposes-----------------
 	//init and set the struct that will be mocked as response
 	//only for next execution of sdk.Deposit()
-	mock := &zotapay.DepositResult{
+	mock := &zota.DepositResult{
 		Code: "200",
-		Data: zotapay.DepositResultData{
+		Data: zota.DepositResultData{
 			DepositURL:      "http://some.mock",
 			MerchantOrderID: "123",
 			OrderID:         "1234",
@@ -75,7 +75,7 @@ func depositMocked() {
 	mock.SetMockResponse()
 	// ------------------------------------------------------
 
-	res, err := sdk.Deposit(zotapay.DepositOrder{
+	res, err := sdk.Deposit(zota.DepositOrder{
 		MerchantOrderID:     "134e4f44t651",
 		MerchantOrderDesc:   "Test order description",
 		OrderAmount:         "500",
@@ -107,6 +107,6 @@ func depositMocked() {
 		return
 	}
 
-	fmt.Printf("successful mocked response from Zotapay server code:%v, order ID:%v, merchant order ID:%v, deposit URL:%v \n",
+	fmt.Printf("successful mocked response from zota server code:%v, order ID:%v, merchant order ID:%v, deposit URL:%v \n",
 		res.Code, res.Data.OrderID, res.Data.MerchantOrderID, res.Data.DepositURL)
 }

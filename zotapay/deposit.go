@@ -1,4 +1,4 @@
-package zotapay
+package zota
 
 import (
 	"encoding/json"
@@ -33,7 +33,7 @@ type DepositOrder struct {
 	Signature                 string `json:"signature"`
 }
 
-// DepositResult represents the response from Zotapay API
+// DepositResult represents the response from Zota API
 type DepositResult struct {
 	Code    string            `json:"code"`
 	Data    DepositResultData `json:"data"`
@@ -50,7 +50,7 @@ var mockedDepositResult *DepositResult
 
 // Deposit init validation of the SDK struct and the DepositOrder
 // generate sign and
-// init a deposit request to Zotapay API
+// init a deposit request to Zota API
 func (s *SDK) Deposit(d DepositOrder) (res DepositResult, err error) {
 
 	//validate that SDK is properly initialized

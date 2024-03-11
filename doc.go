@@ -1,2 +1,2 @@
-// sdk is the Zotapay API SDK package
+// sdk is the Zota API SDK package
 package sdk

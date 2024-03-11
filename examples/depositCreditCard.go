@@ -2,19 +2,20 @@ package main
 
 import (
 	"fmt"
-	"github.com/zotapay/go-sdk/zotapay"
+
+	"github.com/zota/go-sdk/zota"
 )
 
 // credit card deposit example init deposit function
 func depositCC() {
-	var sdk = zotapay.SDK{
+	var sdk = zota.SDK{
 		MerchantID:        "API_MERCHANT_ID",
 		MerchantSecretKey: "API_MERCHANT_SECRET_KEY",
 		EndpointID:        "503368",
-		ApiBaseURL:        zotapay.SANDBOX,
+		ApiBaseURL:        zota.SANDBOX,
 	}
 
-	res, err := sdk.DepositCC(zotapay.DepositCCOrder{
+	res, err := sdk.DepositCC(zota.DepositCCOrder{
 		MerchantOrderID:     "134e4f44t651112121",
 		MerchantOrderDesc:   "Test order description",
 		OrderAmount:         "500",
@@ -49,10 +50,10 @@ func depositCC() {
 	}
 
 	if res.Code != "200" {
-		fmt.Printf("non-successful response from Zotapay server code:%v, error message:%v \n", res.Code, res.Message)
+		fmt.Printf("non-successful response from zota server code:%v, error message:%v \n", res.Code, res.Message)
 		return
 	}
 
-	fmt.Printf("successful response from Zotapay server code:%v, order ID:%v, merchant order ID:%v, deposit Status:%v \n",
+	fmt.Printf("successful response from zota server code:%v, order ID:%v, merchant order ID:%v, deposit Status:%v \n",
 		res.Code, res.Data.OrderID, res.Data.MerchantOrderID, res.Data.Status)
 }

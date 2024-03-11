@@ -1,4 +1,4 @@
-package zotapay
+package zota
 
 import (
 	"encoding/json"
@@ -40,7 +40,7 @@ type PayoutOrder struct {
 	Signature                      string `json:"signature"`
 }
 
-// PayoutResult represents the payout response from Zotapay API
+// PayoutResult represents the payout response from Zota API
 type PayoutResult struct {
 	Code    string           `json:"code"`
 	Data    PayoutResultData `json:"data"`
@@ -56,7 +56,7 @@ var mockedPayoutResult *PayoutResult
 
 // Payout init validation of the SDK struct and PayoutOrder
 // generate sign and
-// init a payout request to Zotapay API
+// init a payout request to Zota API
 func (s *SDK) Payout(p PayoutOrder) (res PayoutResult, err error) {
 
 	//validate that SDK is properly initialized

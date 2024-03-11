@@ -2,19 +2,19 @@ package main
 
 import (
 	"fmt"
-	"github.com/zotapay/go-sdk/zotapay"
+	"github.com/zota/go-sdk/zota"
 )
 
 // payout example init payout function
 func payout() {
-	var sdk = zotapay.SDK{
+	var sdk = zota.SDK{
 		MerchantID:        "API_MERCHANT_ID",
 		MerchantSecretKey: "API_MERCHANT_SECRET_KEY",
 		EndpointID:        "503368",
-		ApiBaseURL:        zotapay.SANDBOX,
+		ApiBaseURL:        zota.SANDBOX,
 	}
 
-	res, err := sdk.Payout(zotapay.PayoutOrder{
+	res, err := sdk.Payout(zota.PayoutOrder{
 		MerchantOrderID:                "134e4f443t651",
 		MerchantOrderDesc:              "Test order description",
 		OrderAmount:                    "500",
@@ -49,30 +49,30 @@ func payout() {
 	}
 
 	if res.Code != "200" {
-		fmt.Printf("non-successful payout response from Zotapay server code:%v, error message:%v \n", res.Code, res.Message)
+		fmt.Printf("non-successful payout response from zota server code:%v, error message:%v \n", res.Code, res.Message)
 		return
 	}
 
-	fmt.Printf("successful payout response from Zotapay server code:%v, order ID:%v, merchant order ID:%v\n",
+	fmt.Printf("successful payout response from zota server code:%v, order ID:%v, merchant order ID:%v\n",
 		res.Code, res.Data.OrderID, res.Data.MerchantOrderID)
 }
 
 // payoutMocked example mocking payout result
 // only for test purposes
 func payoutMocked() {
-	var sdk = zotapay.SDK{
+	var sdk = zota.SDK{
 		MerchantID:        "API_MERCHANT_ID",
 		MerchantSecretKey: "API_MERCHANT_SECRET_KEY",
 		EndpointID:        "503368",
-		ApiBaseURL:        zotapay.SANDBOX,
+		ApiBaseURL:        zota.SANDBOX,
 	}
 
 	// ---------------only for test purposes-----------------
 	//init and set the struct that will be mocked as response
 	//only for next execution of sdk.Payout()
-	mock := &zotapay.PayoutResult{
+	mock := &zota.PayoutResult{
 		Code: "200",
-		Data: zotapay.PayoutResultData{
+		Data: zota.PayoutResultData{
 			MerchantOrderID: "123",
 			OrderID:         "1234",
 		},
@@ -81,7 +81,7 @@ func payoutMocked() {
 	mock.SetMockResponse()
 	// ------------------------------------------------------
 
-	res, err := sdk.Payout(zotapay.PayoutOrder{
+	res, err := sdk.Payout(zota.PayoutOrder{
 		MerchantOrderID:                "134e4f443t651",
 		MerchantOrderDesc:              "Test order description",
 		OrderAmount:                    "500",
@@ -120,6 +120,6 @@ func payoutMocked() {
 		return
 	}
 
-	fmt.Printf("successful mocked response from Zotapay server code:%v, order ID:%v, merchant order ID:%v \n",
+	fmt.Printf("successful mocked response from zota server code:%v, order ID:%v, merchant order ID:%v \n",
 		res.Code, res.Data.OrderID, res.Data.MerchantOrderID)
 }

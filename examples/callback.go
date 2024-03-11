@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/zotapay/go-sdk/zotapay"
+	"github.com/zota/go-sdk/zota"
 )
 
 var mockCallback = `{
@@ -57,11 +57,11 @@ var mockCallback = `{
 
 // callback example for parsing callback
 func callback() {
-	var sdk = zotapay.SDK{
+	var sdk = zota.SDK{
 		MerchantID:        "API_MERCHANT_ID",
 		MerchantSecretKey: "API_MERCHANT_SECRET_KEY",
 		EndpointID:        "503368",
-		ApiBaseURL:        zotapay.SANDBOX,
+		ApiBaseURL:        zota.SANDBOX,
 	}
 
 	res, err := sdk.Callback([]byte(mockCallback))
@@ -76,7 +76,7 @@ func callback() {
 		return
 	}
 
-	fmt.Printf("successful callback received from Zotapay order ID:%v, merchant order ID:%v, order status:%v\n",
+	fmt.Printf("successful callback received from zota order ID:%v, merchant order ID:%v, order status:%v\n",
 		res.OrderID, res.MerchantOrderID, res.Status)
 
 }

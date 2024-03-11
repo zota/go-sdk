@@ -1,4 +1,4 @@
-package zotapay
+package zota
 
 import (
 	"fmt"

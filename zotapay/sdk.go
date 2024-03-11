@@ -1,4 +1,4 @@
-package zotapay
+package zota
 
 import (
 	"bytes"
@@ -41,19 +41,19 @@ type httpClient interface {
 // and returns an error
 func (s *SDK) validate() error {
 	if s.MerchantID == "" {
-		return fmt.Errorf("MerchantID is required.")
+		return fmt.Errorf("MerchantID is required.\n")
 	}
 	if s.MerchantSecretKey == "" {
-		return fmt.Errorf("MerchantSecretKey is required.")
+		return fmt.Errorf("MerchantSecretKey is required.\n")
 	}
 	if s.EndpointID == "" {
-		return fmt.Errorf("EndpointID is required.")
+		return fmt.Errorf("EndpointID is required.\n")
 	}
 	if s.ApiBaseURL == "" {
-		return fmt.Errorf("ApiBaseURL is required.")
+		return fmt.Errorf("ApiBaseURL is required.\n")
 	}
 	if s.ApiBaseURL != SANDBOX && s.ApiBaseURL != LIVE {
-		return fmt.Errorf("unexpected ApiBaseURL.")
+		return fmt.Errorf("unexpected ApiBaseURL.\b")
 	}
 	return nil
 }
@@ -64,7 +64,8 @@ func (s *SDK) initHttpClient() {
 	if s.HttpClient == nil {
 		//enforce tls min version > 1.2
 		mTLSConfig := &tls.Config{}
-		mTLSConfig.PreferServerCipherSuites = true
+		// This is deprecated: https://pkg.go.dev/crypto/tls#Config.PreferServerCipherSuites
+		// mTLSConfig.PreferServerCipherSuites = true
 		mTLSConfig.MinVersion = tls.VersionTLS12
 		tr := &http.Transport{
 			TLSClientConfig: mTLSConfig,
@@ -77,7 +78,7 @@ func (s *SDK) initHttpClient() {
 	}
 }
 
-// postJson makes an http-post request to a Zotapay API endpoint.
+// postJson makes an http-post request to a Zota API endpoint.
 // returns the response as []byte, or an error.
 func (s *SDK) httpDo(method string, url string, data []byte) (code int, body []byte, err error) {
 
@@ -88,7 +89,7 @@ func (s *SDK) httpDo(method string, url string, data []byte) (code int, body []b
 		return
 	}
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("User-Agent", fmt.Sprintf("Zotapay Go SDK %v(%v; %v; %v)", VERSION, runtime.GOOS, runtime.GOARCH, runtime.Version()))
+	req.Header.Set("User-Agent", fmt.Sprintf("Zota Go SDK %v(%v; %v; %v)", VERSION, runtime.GOOS, runtime.GOARCH, runtime.Version()))
 
 	resp, err := s.HttpClient.Do(req)
 	if resp != nil {
@@ -106,7 +107,7 @@ func (s *SDK) httpDo(method string, url string, data []byte) (code int, body []b
 	return
 }
 
-// sign generate Zotapay API signature for Deposit and Payout
+// sign generate Zota API signature for Deposit and Payout
 func (s SDK) sign(args ...string) (signature string) {
 
 	str := ""

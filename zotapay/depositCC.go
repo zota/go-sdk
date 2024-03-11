@@ -1,4 +1,4 @@
-package zotapay
+package zota
 
 import (
 	"encoding/json"
@@ -39,7 +39,7 @@ type DepositCCOrder struct {
 	CardCvv             string `json:"cardCvv"`
 }
 
-// DepositCCResult represents credit card deposit response from Zotapay API
+// DepositCCResult represents credit card deposit response from Zota API
 type DepositCCResult struct {
 	Code    string              `json:"code"`
 	Data    DepositCCResultData `json:"data"`
@@ -56,7 +56,7 @@ var mockedDepositCCResult *DepositCCResult
 
 // DepositCC init validation of the SDK struct and the DepositCCOrder
 // generate sign and
-// init a credit card deposit request to Zotapay API
+// init a credit card deposit request to Zota API
 func (s *SDK) DepositCC(d DepositCCOrder) (res DepositCCResult, err error) {
 
 	//validate that SDK is properly initialized

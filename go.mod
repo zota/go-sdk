@@ -1,10 +1,10 @@
-module github.com/zotapay/go-sdk
+module github.com/zota/go-sdk
 
-go 1.21
+go 1.20
 
 require (
-	github.com/google/go-querystring v1.0.0
-	github.com/google/uuid v1.1.2
+	github.com/google/go-querystring v1.1.0
+	github.com/google/uuid v1.6.0
 	github.com/stretchr/testify v1.6.1
 )
 

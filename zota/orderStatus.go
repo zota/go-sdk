@@ -1,13 +1,14 @@
-package zotapay
+package zota
 
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/google/go-querystring/query"
 	"net/http"
 	"reflect"
 	"strconv"
 	"time"
+
+	"github.com/google/go-querystring/query"
 )
 
 // OrderStatus represents check order status
@@ -19,7 +20,7 @@ type OrderStatus struct {
 	Signature       string `url:"signature"`
 }
 
-// OrderStatusResult represents the response from Zotapay API
+// OrderStatusResult represents the response from Zota API
 type OrderStatusResult struct {
 	Code                  string `json:"code"`
 	OrderStatusResultData `json:"data"`
@@ -55,7 +56,7 @@ var mockedOrderStatusResult *OrderStatusResult
 
 // OrderStatus init validation of the SDK struct and the OrderStatus
 // generate sign and
-// init order status request to Zotapay API
+// init order status request to Zota API
 func (s *SDK) OrderStatus(d OrderStatus) (res OrderStatusResult, err error) {
 
 	//validate that SDK is properly initialized

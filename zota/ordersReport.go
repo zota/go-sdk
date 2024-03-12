@@ -1,14 +1,15 @@
-package zotapay
+package zota
 
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/google/go-querystring/query"
-	"github.com/google/uuid"
 	"net/http"
 	"reflect"
 	"strconv"
 	"time"
+
+	"github.com/google/go-querystring/query"
+	"github.com/google/uuid"
 )
 
 // OrdersReport represents order report request
@@ -25,7 +26,7 @@ type OrdersReport struct {
 	Signature   string `url:"signature"`
 }
 
-// OrdersReportResult represents the response from Zotapay API
+// OrdersReportResult represents the response from Zota API
 type OrdersReportResult struct {
 	Code         string `json:"code"`
 	OrdersReport string `json:"data"`
@@ -36,7 +37,7 @@ var mockedOrdersReportResult *OrdersReportResult
 
 // OrdersReport init validation of the SDK struct and the OrdersReport
 // generate sign and
-// init a orders report request to Zotapay API
+// init a orders report request to Zota API
 func (s *SDK) OrdersReport(d OrdersReport) (res OrdersReportResult, err error) {
 
 	//validate that SDK is properly initialized

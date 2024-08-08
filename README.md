@@ -1,7 +1,7 @@
 [![Codecov.io](https://codecov.io/gh/zota/go-sdk/graph/badge.svg?token=WKOX8Lm3My)](https://codecov.io/gh/zota/go-sdk)
 [![Go Matrix Test](https://github.com/zota/go-sdk/actions/workflows/test-pipeline.yml/badge.svg)](https://github.com/zota/go-sdk/actions/workflows/test-pipeline.yml)
 [![Golang Pipeline](https://github.com/zota/go-sdk/actions/workflows/go-quality.yml/badge.svg)](https://github.com/zota/go-sdk/actions/workflows/go-quality.yml)
-![golang-github](https://user-images.githubusercontent.com/174284/106497798-2cee0d00-64c7-11eb-9014-9e0d8c4231cf.jpg)
+![go-sdk](https://github.com/user-attachments/assets/c3ebb79d-3245-46cc-a2b6-2d49d4c635a7)
 
 # Official Zota Go SDK
 
